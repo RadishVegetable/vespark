@@ -29,5 +29,7 @@ sql -> LogicalPlan -> SparkPlan
 
 ## 2024/04/29
 增加simpledb的轮子，以其Tuple作为整个执行过程中的数据封装。Tuple包含数据类型（descList），数据内容（fields）和行记录ID（recordId）
+
 由于没有实现逻辑算子树的解析，每个节点都缺少数据类型信息datatype，因此只能每个节点都使用Tuple封装来提供数据类型等信息。
+
 简单实现"select t1.id, t1.name from t1 where t1.age >= 12"的执行，还有很多bug。
