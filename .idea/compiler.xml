@@ -6,11 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="vespark-parser" />
+        <module name="vespark-storage" />
+        <module name="vespark-catalyst" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="vespark-catalyst" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

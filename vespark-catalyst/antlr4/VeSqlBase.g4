@@ -59,6 +59,7 @@ queryTerm
 
 queryPrimary
     : querySpecification                    #queryPrimaryDefault
+    // 用在insert的table
     | TABLE qualifiedName                   #table
     | '(' queryNoWith ')'                   #sebquery
     ;
@@ -175,10 +176,17 @@ qualifiedName
     ;
 // 标识符
 identifier
-    : IDENTIFIER                #unquotedIdentifier
-    | BACKQUOTED_IDENTIFIER     #backQuotedIdentifier
+    : strictIdentifier
     ;
 
+strictIdentifier
+    : IDENTIFIER                #unquotedIdentifier
+    | quotedIdentifier          #backQuotedIdentifier
+    ;
+
+quotedIdentifier
+    : BACKQUOTED_IDENTIFIER
+    ;
 comparisonOperator
     : EQ | NEQ | NEQJ | LT | LTE | GT | GTE | NSEQ
     ;
